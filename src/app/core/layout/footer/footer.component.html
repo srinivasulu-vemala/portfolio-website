@@ -1,0 +1,73 @@
+<footer class="footer" role="contentinfo">
+  <div class="container footer-container">
+    <!-- Top Footer Row -->
+    <div class="footer-top-row">
+      <div class="footer-brand-col">
+        <a href="#home" class="footer-brand font-display" (click)="navigateToSection('home', $event)">
+          Vemala<span class="blue-dot">.</span>
+        </a>
+        <p class="footer-role font-sans">Full Stack Developer</p>
+        <p class="footer-location font-sans">Bengaluru, India</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <ul class="footer-links-list">
+          <li><a href="#home" class="footer-link" (click)="navigateToSection('home', $event)">Home</a></li>
+          <li><a href="#about" class="footer-link" (click)="navigateToSection('about', $event)">About</a></li>
+          <li><a href="#skills" class="footer-link" (click)="navigateToSection('skills', $event)">Skills</a></li>
+          <li><a href="#projects" class="footer-link" (click)="navigateToSection('projects', $event)">Projects</a></li>
+          <li><a href="#experience" class="footer-link" (click)="navigateToSection('experience', $event)">Experience</a></li>
+          <li><a href="#contact" class="footer-link" (click)="navigateToSection('contact', $event)">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-social-col">
+        <span class="footer-col-title font-mono">CONNECT</span>
+        <ul class="footer-social-links">
+          <li>
+            <a href="https://github.com/srinivasulu-vemala" target="_blank" rel="noopener noreferrer" class="footer-link">
+              GitHub ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/vemala-srinivasulu" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn ↗
+            </a>
+          </li>
+          <li>
+            <a href="mailto:vemalasrinivasulu1211@gmail.com" class="footer-link">
+              Email ↗
+            </a>
+          </li>
+          <li>
+            <a href="/Vemala-Srinivasulu-Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Resume (PDF) ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Row -->
+    <div class="footer-bottom-row">
+      <div class="footer-copy font-sans">
+        &copy; {{ currentYear }} Vemala Srinivasulu. All rights reserved.
+      </div>
+
+      <div class="footer-actions">
+        <button
+          type="button"
+          class="back-to-top-btn font-sans"
+          (click)="scrollToTop()"
+          aria-label="Scroll back to top of page"
+        >
+          <span>Back to top</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

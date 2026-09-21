@@ -1,0 +1,64 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "generate:assets": "node scripts/generate-resume.js && node scripts/generate-og-image.js",
+    "prebuild": "npm run generate:assets",
+    "start": "ng serve",
+    "build": "ng build",
+    "package:aws": "python scripts/package-aws.py",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/platform-server": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "@angular/ssr": "^20.3.37",
+    "@fontsource/geist-sans": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.37",
+    "@angular/cli": "^20.3.37",
+    "@angular/compiler-cli": "^20.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/express": "^5.0.1",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^20.17.19",
+    "jasmine-core": "~5.9.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "pdf-lib": "^1.17.1",
+    "typescript": "~5.9.2"
+  }
+}

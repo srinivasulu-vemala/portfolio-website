@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srinivasulu-vemala.github.io/sitemap.xml

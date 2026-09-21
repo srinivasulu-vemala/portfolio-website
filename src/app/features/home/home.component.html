@@ -1,0 +1,613 @@
+<div class="home-wrapper">
+  <!-- ========================================================
+       1. HERO SECTION (Main Viewport Showcase)
+       ======================================================== -->
+  <section id="home" class="hero-section" aria-label="Hero Introduction">
+    <div class="container hero-container">
+      <!-- Outer Rounded Canvas Panel (32px border-radius) -->
+      <div class="panel-hero hero-card">
+        
+        <!-- Ambient Background Glow & Radial Concentric Rings -->
+        <div class="hero-ambient-glow" aria-hidden="true">
+          <div class="glow-center-circle"></div>
+          <div class="concentric-ring ring-outer"></div>
+          <div class="concentric-ring ring-mid"></div>
+          <div class="concentric-ring ring-inner"></div>
+        </div>
+
+
+
+        <!-- Main Hero 3-Column Composition -->
+        <div class="hero-body-grid">
+          
+          <!-- LEFT HERO COLUMN: Introduction & Tech Pills -->
+          <div class="hero-col-left">
+            <span class="hero-greeting font-sans">Hello, I'm</span>
+            
+            <h1 class="hero-name-display font-display">
+              <span class="name-first">VEMALA</span>
+              <span class="name-last text-primary">SRINIVASULU</span>
+            </h1>
+
+            <div class="hero-role-badge">
+              <span class="role-text font-display">FULL STACK DEVELOPER</span>
+            </div>
+
+            <p class="hero-bio-text body-l">
+              I build scalable web applications using Java, Spring Boot, Angular, SQL Server and AWS.
+              I enjoy solving real-world problems and building reliable software for enterprise and public infrastructure systems.
+            </p>
+
+            <!-- Technology Pills (Row 1: Primary, Row 2: Secondary) -->
+            <div class="hero-tech-pills-wrap">
+              <div class="tech-pills-row row-1" role="list" aria-label="Primary technologies">
+                @for (pill of techPillsRow1; track pill.name) {
+                  <div class="tech-pill" role="listitem">
+                    @switch (pill.iconType) {
+                      @case ('java') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#E76F00" stroke-width="2">
+                          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                          <line x1="6" y1="1" x2="6" y2="4"></line>
+                          <line x1="10" y1="1" x2="10" y2="4"></line>
+                          <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                      }
+                      @case ('spring') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#6DB33F" stroke-width="2">
+                          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                        </svg>
+                      }
+                      @case ('angular') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#DD0031" stroke-width="2">
+                          <polygon points="12 2 2 6 4 18 12 22 20 18 22 6 12 2"></polygon>
+                          <polyline points="7 14 12 4 17 14"></polyline>
+                          <line x1="8.5" y1="11" x2="15.5" y2="11"></line>
+                        </svg>
+                      }
+                      @case ('sqlserver') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0078D4" stroke-width="2">
+                          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                      }
+                      @case ('aws') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#FF9900" stroke-width="2">
+                          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                        </svg>
+                      }
+                    }
+                    <span class="pill-label font-sans">{{ pill.name }}</span>
+                  </div>
+                }
+              </div>
+
+              <div class="tech-pills-row row-2" role="list" aria-label="Additional technologies">
+                @for (pill of techPillsRow2; track pill.name) {
+                  <div class="tech-pill secondary-pill" role="listitem">
+                    @switch (pill.iconType) {
+                      @case ('api') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3"></circle>
+                          <path d="M12 3v6m0 6v6M3 12h6m6 0h6"></path>
+                        </svg>
+                      }
+                      @case ('microservices') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+                          <rect x="14" y="2" width="8" height="8" rx="2"></rect>
+                          <rect x="2" y="14" width="8" height="8" rx="2"></rect>
+                          <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+                        </svg>
+                      }
+                      @case ('kafka') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="6" cy="12" r="3"></circle>
+                          <circle cx="18" cy="6" r="3"></circle>
+                          <circle cx="18" cy="18" r="3"></circle>
+                          <line x1="8.7" y1="10.7" x2="15.3" y2="7.3"></line>
+                          <line x1="8.7" y1="13.3" x2="15.3" y2="16.7"></line>
+                        </svg>
+                      }
+                      @case ('mqtt') {
+                        <svg class="pill-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M4.93 19.07a10 10 0 0 1 0-14.14"></path>
+                          <path d="M7.76 16.24a6 6 0 0 1 0-8.48"></path>
+                          <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                      }
+                    }
+                    <span class="pill-label font-sans">{{ pill.name }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- Bottom Left Contacts: Email Pill & Social Buttons -->
+            <div class="hero-bottom-left">
+              <button
+                type="button"
+                class="email-pill-btn"
+                (click)="copyEmail($event)"
+                [attr.aria-label]="emailCopied() ? 'Email copied!' : 'Copy email: ' + profile().email"
+                title="Click to copy email address"
+              >
+                <svg class="email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span class="email-text">{{ profile().email }}</span>
+                @if (emailCopied()) {
+                  <span class="copied-badge">Copied!</span>
+                }
+              </button>
+
+              <div class="social-circles-row" aria-label="Social Profiles and Links">
+                <a
+                  href="https://linkedin.com/in/vemala-srinivasulu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-circle-btn linkedin-btn"
+                  aria-label="LinkedIn Profile (opens in new tab)"
+                  title="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.66 1.66 0 1 0 1.66 1.66 1.67 1.67 0 0 0-1.66-1.66Z"/>
+                  </svg>
+                </a>
+
+                <a
+                  href="https://github.com/srinivasulu-vemala"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-circle-btn github-btn"
+                  aria-label="GitHub Profile (opens in new tab)"
+                  title="GitHub"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
+
+                <a
+                  [href]="'tel:' + profile().phone"
+                  class="social-circle-btn phone-btn"
+                  aria-label="Call Phone"
+                  title="Phone"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </a>
+
+                <a
+                  href="/Vemala-Srinivasulu-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-circle-btn resume-btn"
+                  aria-label="View Resume PDF (opens in new tab)"
+                  title="Resume (PDF)"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER COLUMN: Authentic Portrait Cutout & Radial Centerpiece -->
+          <div class="hero-col-center">
+            <div class="portrait-stage">
+              <picture>
+                <source srcset="/images/profile.webp" type="image/webp">
+                <img
+                  src="/images/profile.png"
+                  alt="Vemala Srinivasulu - Full Stack Developer"
+                  class="portrait-cutout-img"
+                  width="370"
+                  height="507"
+                  priority
+                />
+              </picture>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: 4 Floating Career Cards & Handwritten Note -->
+          <div class="hero-col-right">
+            <div class="career-cards-stack" role="list" aria-label="Core Engineering Disciplines">
+              @for (card of careerCards; track card.id) {
+                <div class="career-card" [class]="card.themeClass" role="listitem">
+                  <div class="card-header-row">
+                    <div class="card-icon-wrap">
+                      @switch (card.iconType) {
+                        @case ('code') {
+                          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                          </svg>
+                        }
+                        @case ('cloud') {
+                          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                          </svg>
+                        }
+                        @case ('database') {
+                          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                          </svg>
+                        }
+                        @case ('realtime') {
+                          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18h6"></path>
+                            <path d="M10 22h4"></path>
+                            <path d="M12 2v1"></path>
+                            <path d="M12 7a5 5 0 0 0-5 5c0 2 1 3.5 2 4.5h6c1-1 2-2.5 2-4.5a5 5 0 0 0-5-5z"></path>
+                          </svg>
+                        }
+                      }
+                    </div>
+                    <div class="card-titles">
+                      <h3 class="card-main-title font-display">{{ card.title }}</h3>
+                      <span class="card-stack-tags font-sans">{{ card.stack }}</span>
+                    </div>
+                  </div>
+                  <p class="card-desc body-s">{{ card.description }}</p>
+                </div>
+              }
+            </div>
+
+            <!-- Bottom Right: Editorial Handwritten Decoration -->
+            <div class="hero-bottom-right" aria-hidden="true">
+              <div class="handwritten-accent">
+                <span class="hw-line-1">Let's Build</span>
+                <span class="hw-line-2">Something Amazing</span>
+                <svg class="hw-swoosh" viewBox="0 0 140 18" fill="none">
+                  <path d="M3 14C35 4 105 5 137 14" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       2. ABOUT SECTION
+       ======================================================== -->
+  <section id="about" class="section-padding about-section" aria-label="About Vemala Srinivasulu" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">ABOUT ME</span>
+        <h2 class="heading-2 section-main-title">
+          From physical infrastructure to software systems.
+        </h2>
+      </div>
+
+      <div class="card-premium about-card">
+        <div class="about-grid">
+          <div class="about-narrative-col">
+            <p class="body-l text-lead">
+              I graduated with a B.Tech in Civil Engineering from Sri Venkateswara College of Engineering (SVCE), Tirupati.
+              My transition from physical infrastructure to software engineering was a deliberate pivot: shifting focus from concrete and structural foundations
+              to the backend software layers that operate public safety and smart-city infrastructure.
+            </p>
+            <p class="body-m">
+              Since June 2024, I have been working as an Associate Software Developer at Trinity Mobility in Bengaluru.
+              My code operates inside mission-critical systems where reliability is non-negotiable: Computer-Aided Dispatch (CAD)
+              for emergency numbers (Namma112 Karnataka and Maharashtra 112), Kerala's state disaster early-warning system (KaWaCHaM),
+              and municipal centralized lighting infrastructure.
+            </p>
+            <p class="body-m">
+              Alongside enterprise platforms, I independently built, tested, and deployed the commercial business website
+              for <a href="https://lanslift.com" target="_blank" rel="noopener noreferrer" class="editorial-link text-primary">LANS Lift ↗</a>
+              end to end on AWS, managing everything from frontend development in Angular to DNS routing and cloud hosting.
+            </p>
+            
+            <div class="about-actions-row">
+              <a routerLink="/about" class="cta-outline-link font-sans">
+                Read complete background &amp; credentials →
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Highlight Metrics -->
+          <div class="about-highlights-col">
+            <div class="highlight-item">
+              <span class="hl-number font-display text-primary">2+</span>
+              <div class="hl-text">
+                <strong class="font-display">Years Experience</strong>
+                <p class="body-s">Building enterprise software at Trinity Mobility, Bengaluru.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <span class="hl-number font-display text-primary">05</span>
+              <div class="hl-text">
+                <strong class="font-display">Core Systems</strong>
+                <p class="body-s">Emergency dispatch, disaster warnings, IoT lighting, and WhatsApp bots.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <span class="hl-number font-display text-primary">01</span>
+              <div class="hl-text">
+                <strong class="font-display">Solo Shipped Platform</strong>
+                <p class="body-s">Commercial business platform deployed live on AWS (LANS Lift).</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <span class="hl-number font-display text-primary">100%</span>
+              <div class="hl-text">
+                <strong class="font-display">Production Focus</strong>
+                <p class="body-s">Real-time telemetry, stored procedure optimization &amp; zero-downtime support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       3. SKILLS SECTION (Categorized Pills — No Progress Bars)
+       ======================================================== -->
+  <section id="skills" class="section-padding skills-section" aria-label="Technical Skills" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">TECHNICAL SKILLS</span>
+        <h2 class="heading-2 section-main-title">
+          Comprehensive Full Stack &amp; Enterprise Stack
+        </h2>
+        <p class="body-m section-sub-desc">
+          Engineering capabilities focused on robust backend services, modern frontend architecture, high-throughput message streaming, and production database design.
+        </p>
+      </div>
+
+      <div class="skills-categories-grid">
+        @for (group of skills(); track group.label) {
+          <div class="card-premium skill-category-card">
+            <div class="category-header">
+              <div class="cat-dot"></div>
+              <h3 class="cat-title font-display">{{ group.label }}</h3>
+            </div>
+            <div class="cat-items-wrap">
+              @for (item of group.items; track item) {
+                <span class="skill-tag font-sans">{{ item }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       4. PROJECTS SECTION (Featured Production Platforms)
+       ======================================================== -->
+  <section id="projects" class="section-padding projects-section" aria-label="Featured Projects" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">FEATURED PROJECTS</span>
+        <h2 class="heading-2 section-main-title">
+          Production Systems &amp; Live Infrastructure
+        </h2>
+        <p class="body-m section-sub-desc">
+          Real-world platforms powering state emergency response, disaster warning dissemination, municipal IoT networks, and commercial business platforms.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        @for (project of projects(); track project.slug; let idx = $index) {
+          <article class="card-premium project-card" role="article">
+            <div class="project-card-inner">
+              <div class="project-top-meta">
+                <span class="project-number font-mono text-primary">0{{ idx + 1 }}</span>
+                @if (project.isSolo) {
+                  <span class="solo-pill font-mono">SOLO · SHIPPED · LIVE</span>
+                }
+              </div>
+
+              <h3 class="project-name font-display">{{ project.name }}</h3>
+              <p class="project-subtitle body-m">{{ project.subtitle }}</p>
+
+              <div class="project-stack-row">
+                @for (tech of project.stack; track tech) {
+                  <span class="project-tech-badge font-mono">{{ tech }}</span>
+                }
+              </div>
+
+              <p class="project-summary-text body-s">{{ project.summary }}</p>
+
+              <div class="project-card-footer">
+                <a [routerLink]="['/work', project.slug]" class="project-view-link font-sans text-primary">
+                  <span>View System Architecture &amp; Details</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+
+                @if (project.liveUrl) {
+                  <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="live-ext-link font-sans" title="Open Live Site">
+                    <span>Visit Live Site</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       5. EXPERIENCE SECTION
+       ======================================================== -->
+  <section id="experience" class="section-padding experience-section" aria-label="Work Experience" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">CAREER HISTORY</span>
+        <h2 class="heading-2 section-main-title">
+          Professional Software Engineering
+        </h2>
+      </div>
+
+      <div class="experience-card-wrap">
+        @for (exp of experience(); track exp.company) {
+          <div class="card-premium experience-card">
+            <div class="exp-header-row">
+              <div class="exp-title-group">
+                <h3 class="exp-company font-display">{{ exp.company }}</h3>
+                <span class="exp-role text-primary font-sans">{{ exp.title }} · Full Stack Developer</span>
+              </div>
+              <div class="exp-period-badge font-mono">
+                {{ exp.start }} — {{ exp.end }} (2+ Years)
+              </div>
+            </div>
+
+            <div class="exp-location-tag body-s font-mono">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>{{ exp.location }}</span>
+            </div>
+
+            <div class="exp-responsibilities-list">
+              <h4 class="resp-title font-sans">Core Responsibilities &amp; Focus Areas:</h4>
+              <ul class="resp-ul" role="list">
+                @for (resp of exp.responsibilities; track resp) {
+                  <li class="resp-li body-m">
+                    <span class="check-bullet text-primary" aria-hidden="true">✔</span>
+                    <span>{{ resp }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       6. CONTACT SECTION (Final Strong CTA)
+       ======================================================== -->
+  <section id="contact" class="section-padding contact-section" aria-label="Contact Vemala Srinivasulu" appScrollReveal>
+    <div class="container">
+      <div class="panel-hero contact-panel">
+        <div class="contact-panel-inner">
+          <span class="section-pill-badge light-badge">GET IN TOUCH</span>
+          
+          <h2 class="display-l contact-headline font-display">
+            Let's build something meaningful.
+          </h2>
+
+          <p class="body-l contact-subtext">
+            Open to conversations about full-stack engineering, backend systems, enterprise applications and software development opportunities.
+          </p>
+
+          <div class="contact-cta-buttons-row">
+            <a
+              [href]="'mailto:' + profile().email"
+              class="cta-talk-btn contact-primary-btn"
+              aria-label="Send email to Vemala Srinivasulu"
+            >
+              <span>LET'S TALK</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </a>
+
+            <a
+              href="/Vemala-Srinivasulu-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-resume-outline-btn font-sans"
+              aria-label="View Resume PDF (opens in new tab)"
+            >
+              <span>VIEW RESUME</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Direct Contact Details Grid -->
+          <div class="contact-details-grid">
+            <div class="contact-detail-card card-premium">
+              <span class="detail-label font-mono">EMAIL</span>
+              <div class="detail-val-wrap">
+                <a [href]="'mailto:' + profile().email" class="detail-link font-sans text-primary">
+                  {{ profile().email }}
+                </a>
+                <button
+                  type="button"
+                  class="mini-copy-btn"
+                  (click)="copyEmail($event)"
+                  aria-label="Copy email"
+                >
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>{{ emailCopied() ? 'Copied' : 'Copy' }}</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="contact-detail-card card-premium">
+              <span class="detail-label font-mono">PHONE</span>
+              <a [href]="'tel:' + profile().phone" class="detail-link font-sans">
+                {{ profile().phone }}
+              </a>
+            </div>
+
+            <div class="contact-detail-card card-premium">
+              <span class="detail-label font-mono">LINKEDIN</span>
+              <a
+                href="https://linkedin.com/in/vemala-srinivasulu"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="detail-link font-sans text-primary"
+              >
+                linkedin.com/in/vemala-srinivasulu ↗
+              </a>
+            </div>
+
+            <div class="contact-detail-card card-premium">
+              <span class="detail-label font-mono">GITHUB</span>
+              <a
+                href="https://github.com/srinivasulu-vemala"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="detail-link font-sans text-primary"
+              >
+                github.com/srinivasulu-vemala ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,139 @@
+<header
+  class="header"
+  [class.is-scrolled]="isScrolled()"
+  role="banner"
+>
+  <div class="container header-container">
+    <!-- Brand Name Mark -->
+    <a
+      href="#home"
+      class="name-mark"
+      aria-label="Vemala Srinivasulu - Home"
+      (click)="navigateToSection('home', $event)"
+    >
+      <span class="brand-text font-display">Vemala<span class="blue-dot">.</span></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop" aria-label="Main Navigation">
+      <ul class="nav-list">
+        @for (item of navItems; track item.sectionId) {
+          <li>
+            <a
+              [href]="'#' + item.sectionId"
+              class="nav-link"
+              [class.is-active]="activeSection() === item.sectionId"
+              (click)="navigateToSection(item.sectionId, $event)"
+            >
+              {{ item.label }}
+              <span class="active-indicator" aria-hidden="true"></span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Header Actions (Right) -->
+    <div class="header-actions">
+      <!-- Let's Talk CTA Pill Button -->
+      <a
+        href="#contact"
+        class="cta-talk-btn"
+        (click)="navigateToSection('contact', $event)"
+        aria-label="Let's Talk - Contact Section"
+      >
+        <span>LET'S TALK</span>
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        #menuButton
+        type="button"
+        class="mobile-menu-btn"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-controls="mobile-nav-overlay"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="menu-bar" [class.open]="isMobileMenuOpen()"></span>
+      </button>
+
+      <!-- Theme Toggle (Subtle & Placed Last) -->
+      <button
+        type="button"
+        class="theme-toggle-btn"
+        (click)="themeService.cycleTheme()"
+        [attr.aria-label]="'Toggle color theme. Currently ' + themeService.effectiveTheme() + ' mode.'"
+        title="Toggle Theme"
+      >
+        @if (themeService.effectiveTheme() === 'dark') {
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        } @else {
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Full-Screen Overlay Nav -->
+  @if (isMobileMenuOpen()) {
+    <div
+      id="mobile-nav-overlay"
+      class="mobile-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile Navigation"
+    >
+      <div class="container mobile-overlay-container">
+        <nav class="mobile-nav" aria-label="Mobile Navigation Links">
+          <ul class="mobile-nav-list">
+            @for (item of navItems; track item.sectionId; let idx = $index) {
+              <li class="mobile-nav-item" [style.--stagger-idx]="idx">
+                <a
+                  #firstMenuLink
+                  [href]="'#' + item.sectionId"
+                  class="mobile-nav-link"
+                  [class.is-active]="activeSection() === item.sectionId"
+                  (click)="navigateToSection(item.sectionId, $event)"
+                >
+                  {{ item.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </nav>
+
+        <div class="mobile-overlay-footer">
+          <a
+            href="#contact"
+            class="cta-talk-btn mobile-talk-btn"
+            (click)="navigateToSection('contact', $event)"
+          >
+            <span>LET'S TALK</span>
+            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </a>
+          <p class="meta mobile-footer-text">VEMALA SRINIVASULU · BENGALURU, INDIA</p>
+        </div>
+      </div>
+    </div>
+  }
+</header>

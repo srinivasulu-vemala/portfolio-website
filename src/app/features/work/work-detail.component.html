@@ -1,0 +1,180 @@
+@if (project(); as p) {
+  <article class="case-study-page" role="main">
+    <!-- Header Block -->
+    <header class="case-study-header section-padding">
+      <div class="container">
+        <div class="header-nav-back">
+          <a routerLink="/" class="back-link editorial-link">
+            ← Back to all projects
+          </a>
+        </div>
+
+        <div class="header-meta">
+          <app-mono-label [signal]="true">
+            {{ p.domain }}
+            @if (p.deployments && p.deployments!.length > 0) {
+              · {{ p.deployments!.join(' / ') }}
+            }
+          </app-mono-label>
+        </div>
+
+        <h1 class="case-study-title">
+          {{ p.name }}
+        </h1>
+
+        <p class="case-study-summary">
+          {{ p.summary }}
+        </p>
+
+        <!-- Spec Table -->
+        <app-spec-table [project]="p"></app-spec-table>
+      </div>
+    </header>
+
+    <!-- Narrative Content Sections -->
+    <div class="case-study-body">
+      <!-- 1. The System -->
+      <section class="case-section section-padding hairline-top" aria-label="System Overview" appScrollReveal>
+        <div class="container">
+          <div class="grid-12">
+            <div class="col-label">
+              <app-mono-label [signal]="true">THE SYSTEM</app-mono-label>
+            </div>
+            <div class="col-prose">
+              <h2 class="heading-2 section-heading">Operational Context</h2>
+              <div class="prose-stack">
+                @for (desc of p.systemDescription; track desc) {
+                  <p class="body-m">{{ desc }}</p>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. System Diagram (or Live Site Link for LANS Lift) -->
+      @if (p.diagram) {
+        <section class="case-section section-padding hairline-top" aria-label="System Architecture" appScrollReveal>
+          <div class="container">
+            <div class="grid-12">
+              <div class="col-label">
+                <app-mono-label [signal]="true">FLOW</app-mono-label>
+              </div>
+              <div class="col-content-wide">
+                <h2 class="heading-2 section-heading">Component Architecture</h2>
+                @defer (on viewport) {
+                  <app-system-diagram [spec]="p.diagram"></app-system-diagram>
+                } @placeholder {
+                  <div class="diagram-placeholder hairline-y">
+                    <span class="meta">Loading Architecture Diagram...</span>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+      } @else if (p.liveUrl) {
+        <section class="case-section section-padding hairline-top" aria-label="Live Production Site" appScrollReveal>
+          <div class="container">
+            <div class="grid-12">
+              <div class="col-label">
+                <app-mono-label [signal]="true">PRODUCTION</app-mono-label>
+              </div>
+              <div class="col-prose">
+                <h2 class="heading-2 section-heading">Live Platform</h2>
+                <div class="live-block hairline-y">
+                  <p class="body-m">
+                    The platform is actively hosted on AWS and serves as the public commercial portal for the client.
+                  </p>
+                  <a
+                    [href]="p.liveUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="live-btn meta"
+                    aria-label="Visit live website at lanslift.com (opens in new tab)"
+                  >
+                    Visit lanslift.com ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- 3. What I Worked On -->
+      <section class="case-section section-padding hairline-top" aria-label="My Contributions" appScrollReveal>
+        <div class="container">
+          <div class="grid-12">
+            <div class="col-label">
+              <app-mono-label [signal]="true">SCOPE</app-mono-label>
+            </div>
+            <div class="col-prose">
+              <h2 class="heading-2 section-heading">What I Worked On</h2>
+              <div class="contributions-stack">
+                @for (group of p.contributionGroups; track group.title) {
+                  <div class="contribution-group hairline-top">
+                    <h3 class="heading-3 contribution-title">{{ group.title }}</h3>
+                    <ul class="points-list" role="list">
+                      @for (point of group.points; track point) {
+                        <li class="point-item body-m">
+                          <span class="point-dot meta" aria-hidden="true">·</span>
+                          <span>{{ point }}</span>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Engineering Notes -->
+      <section class="case-section section-padding hairline-top" aria-label="Engineering Notes" appScrollReveal>
+        <div class="container">
+          <div class="grid-12">
+            <div class="col-label">
+              <app-mono-label [signal]="true">ANALYSIS</app-mono-label>
+            </div>
+            <div class="col-prose">
+              <h2 class="heading-2 section-heading">Engineering Notes</h2>
+              <div class="notes-stack">
+                @for (note of p.engineeringNotes; track note; let idx = $index) {
+                  <div class="note-item hairline-top">
+                    <span class="meta note-index">NOTE 0{{ idx + 1 }}</span>
+                    <p class="body-m note-text">{{ note }}</p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Prev / Next Navigation -->
+    <nav class="project-pagination hairline-top" aria-label="Project Navigation">
+      <div class="container pagination-container">
+        <div class="pagination-prev">
+          @if (adjacent().prev; as prevP) {
+            <a [routerLink]="['/work', prevP.slug]" class="pagination-link">
+              <span class="meta pagination-direction">← PREVIOUS PROJECT</span>
+              <span class="heading-3 pagination-name">{{ prevP.name }}</span>
+            </a>
+          }
+        </div>
+
+        <div class="pagination-next">
+          @if (adjacent().next; as nextP) {
+            <a [routerLink]="['/work', nextP.slug]" class="pagination-link is-next">
+              <span class="meta pagination-direction">NEXT PROJECT →</span>
+              <span class="heading-3 pagination-name">{{ nextP.name }}</span>
+            </a>
+          }
+        </div>
+      </div>
+    </nav>
+  </article>
+}

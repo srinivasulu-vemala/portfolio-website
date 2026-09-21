@@ -1,0 +1,137 @@
+.footer {
+  background-color: var(--surface-card);
+  border-top: 1px solid var(--surface-card-border);
+  padding-top: var(--space-64);
+  padding-bottom: var(--space-40);
+  color: var(--color-text-muted);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  gap: var(--space-32);
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.footer-role {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.footer-location {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-links-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-12) var(--space-32);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-social-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.footer-col-title {
+  font-size: 0.6875rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.08em;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--surface-card-border);
+  gap: var(--space-16);
+}
+
+.footer-copy {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+}
+
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  transition: color var(--duration-fast) ease;
+}
+
+.back-to-top-btn:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+}

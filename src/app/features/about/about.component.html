@@ -1,0 +1,120 @@
+<div class="about-page" role="main">
+  <!-- 1. Header & Narrative -->
+  <section class="about-narrative section-padding">
+    <div class="container">
+      <div class="header-nav-back">
+        <a routerLink="/" class="back-link font-sans text-primary">
+          ← Back to selected work
+        </a>
+      </div>
+
+      <div class="section-header-block">
+        <span class="section-pill-badge">ABOUT ME</span>
+        <h1 class="display-l about-headline font-display">
+          Engineering software for systems that cannot fail silently.
+        </h1>
+      </div>
+
+      <div class="card-premium about-main-card">
+        <div class="about-prose-body">
+          <p class="body-l text-lead">
+            I graduated with a B.Tech in Civil Engineering from Sri Venkateswara College of Engineering (SVCE), Tirupati.
+            My transition from physical infrastructure to software systems was a deliberate pivot: shifting focus from concrete and steel
+            to the software layers that operate public infrastructure.
+          </p>
+
+          <p class="body-m">
+            Since June 2024, I have been working as an Associate Software Developer at Trinity Mobility in Bengaluru.
+            My code operates inside mission-critical public-safety platforms: Computer-Aided Dispatch for emergency response numbers
+            (Namma112 and Maharashtra 112), a state disaster early-warning platform (Kerala Warnings, Crisis &amp; Hazard Management System),
+            and municipal centralized lighting infrastructure.
+          </p>
+
+          <p class="body-m">
+            Enterprise civic systems operate under strict expectations of availability and consistency.
+            A dispatch event cannot be dropped, weather warning feeds must be ingested despite fluctuating upstream schemas,
+            and streetlight telemetry must be reliably aggregated over intermittent network connections.
+          </p>
+
+          <p class="body-m">
+            My day-to-day work centers on Java, Spring Boot, Angular, and Microsoft SQL Server.
+            I develop and maintain REST APIs, design database schema operations, optimize complex SQL queries and stored procedures,
+            and integrate third-party services—ranging from real-time WhatsApp Business API webhooks to multi-source weather telemetry.
+          </p>
+
+          <p class="body-m">
+            Production support, log analysis, and root-cause debugging are regular parts of my engineering workflow.
+            When an issue occurs, I trace execution flow across frontend Angular components, Spring Boot microservices,
+            database stored procedures, and external network webhooks to isolate and rectify the underlying cause.
+          </p>
+
+          <p class="body-m">
+            In addition to enterprise platforms, I independently designed, built, and shipped the commercial business website
+            for <a href="https://lanslift.com" target="_blank" rel="noopener noreferrer" class="editorial-link text-primary">LANS Lift ↗</a> end to end.
+            I managed the complete project lifecycle: initial requirements gathering, responsive frontend engineering in Angular,
+            Git repository setup, AWS cloud deployment, DNS configuration, and production maintenance.
+          </p>
+
+          <p class="body-m">
+            I am open to conversations about backend and full-stack engineering roles where scalable service architecture,
+            rigorous data consistency, and reliable system operations are valued.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Education Section -->
+  <section class="education-section section-padding" aria-label="Education" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">EDUCATION</span>
+        <h2 class="heading-2 section-title font-display">Academic Background</h2>
+      </div>
+
+      <div class="card-premium edu-card">
+        <div class="education-table" role="region" aria-label="Education History">
+          @for (edu of education(); track edu.qualification; let isFirst = $first) {
+            <div class="edu-row" [class.hairline-top]="!isFirst">
+              <div class="edu-qual-wrap">
+                <span class="body-m edu-qual font-display">{{ edu.qualification }}</span>
+                <span class="body-m edu-inst font-sans">{{ edu.institution }}</span>
+              </div>
+              <div class="edu-score font-mono text-primary">
+                {{ edu.score }}
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Certification Section -->
+  <section class="certification-section section-padding" aria-label="Certifications" appScrollReveal>
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-pill-badge">CREDENTIALS</span>
+        <h2 class="heading-2 section-title font-display">Certification</h2>
+      </div>
+
+      <div class="card-premium cert-card">
+        <div class="cert-table" role="region" aria-label="Certifications List">
+          @for (cert of certification(); track cert.title) {
+            <div class="cert-row">
+              <div class="cert-info">
+                <span class="body-m cert-title font-display">{{ cert.title }}</span>
+                <span class="meta cert-issuer">{{ cert.issuer }} · {{ cert.year }}</span>
+              </div>
+              @if (cert.url) {
+                <a [href]="cert.url" target="_blank" rel="noopener noreferrer" class="cert-link font-mono text-primary">
+                  VERIFY ↗
+                </a>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

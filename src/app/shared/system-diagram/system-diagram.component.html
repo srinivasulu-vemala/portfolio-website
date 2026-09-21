@@ -1,0 +1,119 @@
+<figure class="diagram-figure" role="region" [attr.aria-label]="spec().caption">
+  <div class="diagram-viewport">
+    <svg
+      class="diagram-svg"
+      role="img"
+      [attr.viewBox]="layout().viewBox"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>{{ spec().caption }}</title>
+      <desc>{{ spec().altText }}</desc>
+
+      <defs>
+        <!-- Arrowhead Marker (Forward) -->
+        <marker
+          id="arrow-forward"
+          viewBox="0 0 10 10"
+          refX="6"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--ink-3)"/>
+        </marker>
+
+        <!-- Arrowhead Marker (Return / Signal) -->
+        <marker
+          id="arrow-return"
+          viewBox="0 0 10 10"
+          refX="6"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--signal)"/>
+        </marker>
+      </defs>
+
+      <!-- Edges -->
+      @for (edge of layout().edges; track $index) {
+        <g class="diagram-edge" [class.is-return]="edge.direction === 'return'">
+          <path
+            [attr.d]="edge.path"
+            fill="none"
+            [attr.stroke]="edge.direction === 'return' ? 'var(--signal)' : 'var(--rule)'"
+            stroke-width="1.2"
+            [attr.stroke-dasharray]="edge.direction === 'return' ? '3,3' : 'none'"
+            [attr.marker-end]="edge.direction === 'return' ? 'url(#arrow-return)' : 'url(#arrow-forward)'"
+          />
+
+          @if (edge.label) {
+            <text
+              [attr.x]="edge.labelX"
+              [attr.y]="edge.labelY"
+              class="edge-label"
+              text-anchor="middle"
+            >
+              {{ edge.label }}
+            </text>
+          }
+        </g>
+      }
+
+      <!-- Nodes -->
+      @for (node of layout().nodes; track node.id) {
+        <g class="diagram-node" [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+          <!-- Background rectangle with 1px hairline rule and 2px radius -->
+          <rect
+            width="100%"
+            height="100%"
+            [attr.width]="node.width"
+            [attr.height]="node.height"
+            rx="2"
+            ry="2"
+            fill="var(--paper-raised)"
+            stroke="var(--rule)"
+            stroke-width="1"
+          />
+
+          <!-- Kind Tag Marker -->
+          <rect
+            x="8"
+            y="8"
+            width="32"
+            height="16"
+            rx="1"
+            ry="1"
+            fill="var(--paper)"
+            stroke="var(--rule)"
+            stroke-width="0.75"
+          />
+          <text
+            x="24"
+            y="19"
+            class="kind-text"
+            text-anchor="middle"
+          >
+            {{ getKindBadge(node.kind) }}
+          </text>
+
+          <!-- Node Label -->
+          <text
+            [attr.x]="isVertical() ? 48 : node.width / 2"
+            [attr.y]="isVertical() ? node.height / 2 + 4 : node.height / 2 + 10"
+            [attr.text-anchor]="isVertical() ? 'start' : 'middle'"
+            class="node-label"
+          >
+            {{ node.label }}
+          </text>
+        </g>
+      }
+    </svg>
+  </div>
+
+  <figcaption class="diagram-caption meta hairline-top">
+    <span class="caption-marker">FIG. ARCHITECTURE</span> · {{ spec().caption }}
+  </figcaption>
+</figure>

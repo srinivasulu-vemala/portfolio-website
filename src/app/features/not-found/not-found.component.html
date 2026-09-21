@@ -1,0 +1,24 @@
+<div class="not-found-page section-padding" role="main">
+  <div class="container">
+    <div class="not-found-content">
+      <app-mono-label [signal]="true">404 · STATUS_NOT_FOUND</app-mono-label>
+
+      <h1 class="display-l not-found-title">
+        The requested resource is unmapped or does not exist.
+      </h1>
+
+      <p class="body-l not-found-desc">
+        The endpoint or route you navigated to has no active handler. You can return to the index or explore selected work.
+      </p>
+
+      <div class="not-found-actions">
+        <a routerLink="/" class="btn-home meta">
+          Return to Home →
+        </a>
+        <a routerLink="/about" class="btn-about meta editorial-link">
+          About &amp; Experience →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

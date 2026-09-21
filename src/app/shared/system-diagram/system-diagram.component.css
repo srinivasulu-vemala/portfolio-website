@@ -1,0 +1,55 @@
+.diagram-figure {
+  margin: 0;
+  width: 100%;
+  margin-block: var(--space-48);
+}
+
+.diagram-viewport {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  padding: var(--space-24) var(--space-16);
+  border-radius: var(--radius-subtle);
+}
+
+.diagram-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+
+.edge-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--ink-3);
+  letter-spacing: 0.04em;
+}
+
+.kind-text {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  fill: var(--ink-3);
+}
+
+.node-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  fill: var(--ink);
+  font-weight: 400;
+}
+
+.diagram-caption {
+  padding-top: var(--space-12);
+  margin-top: var(--space-12);
+  color: var(--ink-3);
+}
+
+.caption-marker {
+  color: var(--signal);
+  font-weight: 500;
+}

@@ -1,0 +1,51 @@
+<div class="spec-table hairline-y" role="region" aria-label="Project Specifications">
+  <div class="spec-row">
+    <dt class="meta spec-label">Role</dt>
+    <dd class="spec-value body-m">{{ project().roleLine }}</dd>
+  </div>
+
+  <div class="spec-row hairline-top">
+    <dt class="meta spec-label">Organisation</dt>
+    <dd class="spec-value body-m">{{ project().organisation }}</dd>
+  </div>
+
+  <div class="spec-row hairline-top">
+    <dt class="meta spec-label">Domain</dt>
+    <dd class="spec-value body-m">{{ project().domain }}</dd>
+  </div>
+
+  @if (project().deployments && project().deployments!.length > 0) {
+    <div class="spec-row hairline-top">
+      <dt class="meta spec-label">Deployments</dt>
+      <dd class="spec-value body-m">
+        {{ project().deployments!.join(' · ') }}
+      </dd>
+    </div>
+  }
+
+  <div class="spec-row hairline-top">
+    <dt class="meta spec-label">Stack</dt>
+    <dd class="spec-value body-m">
+      {{ project().stack.join(' · ') }}
+    </dd>
+  </div>
+
+  @if (project().period) {
+    <div class="spec-row hairline-top">
+      <dt class="meta spec-label">Period</dt>
+      <dd class="spec-value body-m">{{ project().period }}</dd>
+    </div>
+  }
+
+  @if (project().liveUrl) {
+    <div class="spec-row hairline-top">
+      <dt class="meta spec-label">Live Site</dt>
+      <dd class="spec-value body-m">
+        <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer" class="live-link editorial-link">
+          {{ project().liveUrl }}
+          <span class="external-arrow" aria-hidden="true"> ↗</span>
+        </a>
+      </dd>
+    </div>
+  }
+</div>
