@@ -460,7 +460,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: var(--space-48);
-  align-items: start;
+  align-items: stretch;
 }
 
 .about-narrative-col {
@@ -493,19 +493,23 @@
 }
 
 .about-highlights-col {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: var(--space-16);
+  height: 100%;
 }
 
 .highlight-item {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-16);
-  padding: var(--space-16);
+  align-items: center;
+  gap: var(--space-20);
+  padding: var(--space-20) var(--space-24);
   background: var(--surface-card-subtle);
   border: 1px solid var(--surface-card-border);
   border-radius: var(--radius-md);
+  flex: 1;
+  min-height: 0;
 }
 
 .hl-number {
