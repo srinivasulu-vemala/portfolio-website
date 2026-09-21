@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "generate:assets": "node scripts/generate-resume.js && node scripts/generate-og-image.js",
+    "generate:assets": "node scripts/generate-og-image.js",
     "prebuild": "npm run generate:assets",
     "start": "ng serve",
     "build": "ng build",

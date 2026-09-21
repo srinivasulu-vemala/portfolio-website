@@ -226,6 +226,10 @@ async function createResume() {
 
   const pdfBytes = await pdfDoc.save();
   const dest = path.join(__dirname, '..', 'public', 'Vemala-Srinivasulu-Resume.pdf');
+  if (fs.existsSync(dest) && !process.argv.includes('--force')) {
+    console.log('Preserving existing user resume at', dest);
+    return;
+  }
   fs.writeFileSync(dest, pdfBytes);
   console.log('Resume successfully generated at', dest);
 }
